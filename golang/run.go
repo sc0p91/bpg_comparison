@@ -14,21 +14,19 @@ func main() {
 
 	var input = ""
 	reader := bufio.NewReader(os.Stdin)
+	rand.Seed(time.Now().Unix())
 
 	fmt.Println("Welcome to Type-Runner! Hit enter to begin the race...")
 	startTime := time.Now().Unix()
 	fmt.Scanln()
 
 	fileBytes, err := ioutil.ReadFile("/usr/share/dict/words")
-
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
 	}
 
 	sliceData := strings.Split(string(fileBytes), "\n")
-
-	rand.Seed(time.Now().Unix())
 
 	for i := 1; i <= 5; i++ {
 		word := strings.ToLower(sliceData[rand.Intn(len(sliceData))])
