@@ -13,7 +13,7 @@ start_time = localtime()
 answer = ""
 
 for i in range(5):
-    word = random.choice(open("/usr/share/dict/words").read().split())
+    word = random.choice(open("/usr/share/dict/words").read().split()).lower()
     while answer != word:
         answer = input(f"Type {word}: ")
 
