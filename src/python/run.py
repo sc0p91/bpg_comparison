@@ -5,15 +5,16 @@
 ###############################################
 
 from time import localtime, mktime, strftime
-import random
+import random, os
 
 input("Welcome to Type-Runner! Hit enter to begin the race...")
 
 start_time = localtime()
 answer = ""
+wordfile = os.path.join(os.path.dirname(__file__), '../../data/words')
 
 for i in range(5):
-    word = random.choice(open("/usr/share/dict/words").read().split()).lower()
+    word = random.choice(open(wordfile).read().split()).lower()
     while answer != word:
         answer = input(f"Type {word}: ")
 
