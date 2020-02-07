@@ -3,7 +3,6 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"io/ioutil"
 	"math/rand"
 	"os"
 	"strings"
@@ -20,13 +19,7 @@ func main() {
 	startTime := time.Now().Unix()
 	fmt.Scanln()
 
-	fileBytes, err := ioutil.ReadFile("/usr/share/dict/words")
-	if err != nil {
-		fmt.Println(err)
-		os.Exit(1)
-	}
-
-	sliceData := strings.Split(string(fileBytes), "\n")
+	sliceData := strings.Split(wordList, "\n")
 
 	for i := 1; i <= 5; i++ {
 		word := strings.ToLower(sliceData[rand.Intn(len(sliceData))])
